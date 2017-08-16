@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8CAE9257-F2C1-489C-B910-3A298A1706B7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JV.Wpf.Utilities</RootNamespace>
+    <AssemblyName>JV.Wpf.Utilities</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug.Net40|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug.Net40\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NET40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>6</LangVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release.Net40|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release.Net40\</OutputPath>
+    <DefineConstants>TRACE;NET40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>6</LangVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <DocumentationFile>bin\Release.Net40\JV.Wpf.Utilities.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug.Net45|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug.Net45\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NET45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>6</LangVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release.Net45|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release.Net45\</OutputPath>
+    <DefineConstants>TRACE;NET45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>6</LangVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DocumentationFile>bin\Release.Net45\JV.Wpf.Utilities.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug.Net46|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug.Net46\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NET46</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>6</LangVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release.Net46|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release.Net46\</OutputPath>
+    <DefineConstants>TRACE;NET46</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>6</LangVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <DocumentationFile>bin\Release.Net46\JV.Wpf.Utilities.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Condition=" $(DefineConstants.Contains('NET40')) " Include="ReadOnlyCollectionsInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReadOnlyCollectionInterfaces.1.0.0\lib\NET40-client\ReadOnlyCollectionsInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Collections\CollectionFactory.cs" />
+    <Compile Include="Collections\Interfaces\ICollectionFactory.cs" />
+    <Compile Include="Collections\Interfaces\IObservableCollection.cs" />
+    <Compile Include="Collections\Interfaces\IReadOnlyObservableCollection.cs" />
+    <Compile Include="Collections\ObservableCollection.cs" />
+    <Compile Include="Collections\ReadOnlyObservableCollection.cs" />
+    <Compile Include="Commands\AsyncDelegateCommand.cs" />
+    <Compile Include="Commands\AsyncDelegateCommand.Generic.cs" />
+    <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="Commands\DelegateCommand.Generic.cs" />
+    <Compile Include="Commands\Interfaces\IAsyncCommand.cs" />
+    <Compile Include="Commands\Interfaces\ICommandManager.cs" />
+    <Compile Include="Commands\WpfCommandManager.cs" />
+    <Compile Include="Mvvm\Interfaces\IModelViewModel.cs" />
+    <Compile Include="Mvvm\Interfaces\IViewModel.cs" />
+    <Compile Include="Mvvm\ModelViewModelBase.cs" />
+    <Compile Include="Mvvm\ViewModelBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValueConverters\BooleanInversionValueConverter.cs" />
+    <Compile Include="ValueConverters\BooleanToStringValueConverterAndValidationRule.cs" />
+    <Compile Include="ValueConverters\BooleanToVisibilityValueConverter.cs" />
+    <Compile Include="ValueConverters\Int32ToStringValueConverterAndValidationRule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="JV.Utilities.Wpf.nuspec" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JV.Utilities\JV.Utilities.csproj">
+      <Project>{6c47b6d1-2087-4374-8a0b-45213cb46294}</Project>
+      <Name>JV.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
