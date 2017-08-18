@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
+using JV.Utilities.Observation;
 using JV.Utilities.Wpf.Mvvm.Interfaces;
 
 namespace JV.Utilities.Wpf.Mvvm
@@ -26,11 +25,11 @@ namespace JV.Utilities.Wpf.Mvvm
             {
                 if (EqualityComparer<TModel>.Default.Equals(_model, value))
                     return;
-
+                var oldValue = _model;
                 _model = value;
 
-                OnModelChanged(value);
-                ModelChanged?.Invoke(this, EventArgs.Empty);
+                OnModelChanged(oldValue, _model);
+                ModelChanged?.Invoke(this, new PropertyChangedEventArgs<TModel>(oldValue, _model));
             }
         }
         private TModel _model;
@@ -38,7 +37,7 @@ namespace JV.Utilities.Wpf.Mvvm
         /// <summary>
         /// See <see cref="IModelViewModel{TModel}.ModelChanged"/>.
         /// </summary>
-        public event EventHandler ModelChanged;
+        public event EventHandler<PropertyChangedEventArgs<TModel>> ModelChanged;
 
         #endregion IModelViewModel
 
@@ -48,8 +47,9 @@ namespace JV.Utilities.Wpf.Mvvm
         /// <summary>
         /// Invokes after the value of <see cref="Model"/> has changed, just before <see cref="ModelChanged"/> occurs.
         /// </summary>
-        /// <param name="model">The new value of <see cref="Model"/>.</param>
-        internal protected abstract void OnModelChanged(TModel model);
+        /// <param name="oldValue">The old value of <see cref="Model"/>.</param>
+        /// <param name="newValue">The new value of <see cref="Model"/>.</param>
+        internal protected abstract void OnModelChanged(TModel oldValue, TModel newValue);
 
         #endregion Protected Methods
     }

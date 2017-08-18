@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
 
+using JV.Utilities.Observation;
+
 namespace JV.Utilities.Wpf.Mvvm.Interfaces
 {
     /// <summary>
@@ -10,26 +12,26 @@ namespace JV.Utilities.Wpf.Mvvm.Interfaces
     public interface IModelViewModel<TModel> : IViewModel
     {
         /**********************************************************************/
-        #region Properties
+        #region Properties (ViewModel Layer)
 
         /// <summary>
-        /// The TModel object whose data is currently represented within the ViewModel.
-        /// This property is intended for VM to VM interaction only, not for use in the View layer.
+        /// The <typeparamref name="TModel"/> object whose data is currently represented within the ViewModel.
+        /// This property is intended for VM-to-VM interaction only, not for use in the View layer.
         /// As such, change notification for this property is provided by the dedicated event <see cref="ModelChanged"/>,
         /// not by <see cref="INotifyPropertyChanged.PropertyChanged"/>.
         /// </summary>
         TModel Model { get; set; }
 
-        #endregion Properties
+        #endregion Properties (ViewModel Layer)
 
         /**********************************************************************/
-        #region Events
+        #region Events (ViewModel Layer)
 
         /// <summary>
         /// Occurs after the value of <see cref="Model"/> has changed.
         /// </summary>
-        event EventHandler ModelChanged;
+        event EventHandler<PropertyChangedEventArgs<TModel>> ModelChanged;
 
-        #endregion Events
+        #endregion Events (ViewModel Layer)
     }
 }

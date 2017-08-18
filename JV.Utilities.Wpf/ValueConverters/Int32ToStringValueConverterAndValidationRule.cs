@@ -120,7 +120,7 @@ namespace JV.Utilities.Wpf.ValueConverters
         #region ValidationRule Overrides
 
         /// <summary>
-        /// See <see cref="ValidationRule.Validate"/> and <see cref="Convert"/>.
+        /// See <see cref="ValidationRule.Validate(object, CultureInfo)"/> and <see cref="Convert"/>.
         /// </summary>
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {

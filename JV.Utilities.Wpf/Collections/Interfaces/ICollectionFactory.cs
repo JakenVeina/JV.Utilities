@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.ComponentModel;
 
 namespace JV.Utilities.Wpf.Collections.Interfaces
 {
@@ -41,5 +44,19 @@ namespace JV.Utilities.Wpf.Collections.Interfaces
         /// <exception cref="ArgumentNullException">Throws for <paramref name="source"/>.</exception>
         /// <returns>The newly created <see cref="IReadOnlyObservableCollection{T}"/> object.</returns>
         IReadOnlyObservableCollection<T> CreateReadOnlyObservableCollection<T>(IObservableCollection<T> source);
+
+        /// <summary>
+        /// Creates a new <see cref="ICollectionView"/> object, using the given <see cref="IEnumerable{T}"/> as <see cref="ICollectionView.SourceCollection"/>.
+        /// The <see cref="ICollectionView"/> provides a filterable/sortable/groupable view of the current state of the source collection,
+        /// allowing it to be manipulated by the View layer without affecting the source.
+        /// If <paramref name="source"/> implements <see cref="IList"/> or <see cref="IList{T}"/>, any changes (addition, removal, or replacement of items)
+        /// made to the <see cref="ICollectionView"/> will automatically be applied to <paramref name="source"/>.
+        /// If <paramref name="source"/> implements <see cref="INotifyCollectionChanged"/>, the <see cref="ICollectionView"/> object will automatically update itsef
+        /// if any changes are made to <paramref name="source"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of items to be viewed.</typeparam>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        ICollectionView CreateCollectionView<T>(IEnumerable<T> source);
     }
 }

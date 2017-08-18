@@ -14,21 +14,24 @@ namespace JV.Utilities.Wpf.Collections
         #region Constructors
 
         /// <summary>
+        /// See <see cref="ICollectionFactory.CreateObservableCollection{T}()"/>.
         /// See <see cref="System.Collections.ObjectModel.ObservableCollection{T}"/>.
         /// </summary>
-        internal ObservableCollection()
+        public ObservableCollection()
             : base() { }
 
         /// <summary>
+        /// See <see cref="ICollectionFactory.CreateObservableCollection{T}(List{T})"/>.
         /// See <see cref="System.Collections.ObjectModel.ObservableCollection{T}"/>.
         /// </summary>
-        internal ObservableCollection(List<T> list)
+        public ObservableCollection(List<T> list)
             : base(list) { }
 
         /// <summary>
+        /// See <see cref="ICollectionFactory.CreateObservableCollection{T}(IEnumerable{T})"/>.
         /// See <see cref="System.Collections.ObjectModel.ObservableCollection{T}"/>.
         /// </summary>
-        internal ObservableCollection(IEnumerable<T> collection)
+        public ObservableCollection(IEnumerable<T> collection)
             : base(collection) { }
 
         #endregion Constructors

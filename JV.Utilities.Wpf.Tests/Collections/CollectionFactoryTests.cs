@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Data;
 
 using NUnit.Framework;
 using NSubstitute;
@@ -100,5 +98,24 @@ namespace JV.Utilities.Wpf.Tests.Collections
         }
 
         #endregion CreateReadOnlyObservableCollection(source) Tests
+
+        /**********************************************************************/
+        #region CreateCollectionView Tests
+
+        [Test]
+        public void CreateCollectionView_Always_ReturnsNewCollectionViewSourceView()
+        {
+            var uut = new CollectionFactory();
+
+            var source = new ObservableCollection<string>();
+
+            var result = uut.CreateCollectionView(source);
+
+            result.ShouldSatisfyAllConditions(
+                () => result.SourceCollection.ShouldBeSameAs(source),
+                () => result.ShouldNotBeSameAs(CollectionViewSource.GetDefaultView(source)));
+        }
+
+        #endregion CreateCollectionView Tests
     }
 }

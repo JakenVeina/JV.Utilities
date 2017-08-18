@@ -18,7 +18,10 @@ namespace JV.Utilities.Wpf.Collections
         /**********************************************************************/
         #region Constructors
 
-        internal ReadOnlyObservableCollection(IObservableCollection<T> source)
+        /// <summary>
+        /// See <see cref="ICollectionFactory.CreateReadOnlyObservableCollection{T}(IObservableCollection{T})"/>.
+        /// </summary>
+        public ReadOnlyObservableCollection(IObservableCollection<T> source)
         {
             if (source == null)
                 throw new ArgumentNullException(nameof(source));
