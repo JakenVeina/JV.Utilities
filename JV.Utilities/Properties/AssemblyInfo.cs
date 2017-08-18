@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("JV.Utilities")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Common C# Utilities for the .NET Framework")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("https://github.com/JakenVeina")]
 [assembly: AssemblyProduct("JV.Utilities")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]

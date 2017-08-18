@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("JV.Wpf.Utilities")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Common Utilities for Windows Presentation Foundation (WPF)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("https://github.com/JakenVeina")]
 [assembly: AssemblyProduct("JV.Wpf.Utilities")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]

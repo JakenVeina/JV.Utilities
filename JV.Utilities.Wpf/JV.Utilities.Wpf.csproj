@@ -7,8 +7,8 @@
     <ProjectGuid>{8CAE9257-F2C1-489C-B910-3A298A1706B7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JV.Wpf.Utilities</RootNamespace>
-    <AssemblyName>JV.Wpf.Utilities</AssemblyName>
+    <RootNamespace>JV.Utilities.Wpf</RootNamespace>
+    <AssemblyName>JV.Utilities.Wpf</AssemblyName>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug.Net40|AnyCPU' ">
@@ -31,7 +31,7 @@
     <WarningLevel>4</WarningLevel>
     <LangVersion>6</LangVersion>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <DocumentationFile>bin\Release.Net40\JV.Wpf.Utilities.xml</DocumentationFile>
+    <DocumentationFile>bin\Release.Net40\JV.Utilities.Wpf.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug.Net45|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -53,7 +53,7 @@
     <WarningLevel>4</WarningLevel>
     <LangVersion>6</LangVersion>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <DocumentationFile>bin\Release.Net45\JV.Wpf.Utilities.xml</DocumentationFile>
+    <DocumentationFile>bin\Release.Net45\JV.Utilities.Wpf.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug.Net46|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -75,9 +75,15 @@
     <WarningLevel>4</WarningLevel>
     <LangVersion>6</LangVersion>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
-    <DocumentationFile>bin\Release.Net46\JV.Wpf.Utilities.xml</DocumentationFile>
+    <DocumentationFile>bin\Release.Net46\JV.Utilities.Wpf.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Package|AnyCPU'">
+    <OutputPath>bin\Package\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="JV.Utilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\JV.Utilities.1.0.0\lib\net40\JV.Utilities.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Condition=" $(DefineConstants.Contains('NET40')) " Include="ReadOnlyCollectionsInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -111,14 +117,13 @@
     <Compile Include="ValueConverters\Int32ToStringValueConverterAndValidationRule.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="JV.Utilities.Wpf.nuspec" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\JV.Utilities\JV.Utilities.csproj">
-      <Project>{6c47b6d1-2087-4374-8a0b-45213cb46294}</Project>
-      <Name>JV.Utilities</Name>
-    </ProjectReference>
+    <None Include="JV.Utilities.Wpf.nuspec">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="nuget.bat" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

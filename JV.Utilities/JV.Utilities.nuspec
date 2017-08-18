@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>JV.Utilities</id>
+    <version>1.0.0</version>
+    <title>JV.Utilities</title>
+    <authors>https://github.com/JakenVeina</authors>
+    <owners>https://github.com/JakenVeina</owners>
+    <projectUrl>https://github.com/JakenVeina/JV.Utilities</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Common C# Utilities for the .NET Framework</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Utilities Comparers Extensions Math PropertyChanged</tags>
+  </metadata>
+  <files>
+    <file src="bin\Release.Net40\JV.Utilities.dll" target="lib\net40"/>
+    <file src="bin\Release.Net40\JV.Utilities.xml" target="lib\net40"/>
+    <file src="bin\Release.Net45\JV.Utilities.dll" target="lib\net45"/>
+    <file src="bin\Release.Net45\JV.Utilities.xml" target="lib\net45"/>
+    <file src="bin\Release.Net46\JV.Utilities.dll" target="lib\net46"/>
+    <file src="bin\Release.Net46\JV.Utilities.xml" target="lib\net46"/>
+  </files>
+</package>

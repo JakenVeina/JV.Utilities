@@ -1,16 +1,36 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
-    <projectUrl>https://github.com/JakenVeina/JV.Wpf.Utilities</projectUrl>
+    <id>JV.Utilities.Wpf</id>
+    <version>1.0.0</version>
+    <title>JV.Utilities.Wpf</title>
+    <authors>https://github.com/JakenVeina</authors>
+    <owners>https://github.com/JakenVeina</owners>
+    <projectUrl>https://github.com/JakenVeina/JV.Utilities</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
-    <releaseNotes>Initial Release</releaseNotes>
+    <description>Common Utilities for Windows Presentation Foundation (WPF)</description>
+    <releaseNotes>Initial release.</releaseNotes>
     <copyright>Copyright 2017</copyright>
-    <tags>.NET WPF MVVM</tags>
+    <tags>Utilities WPF MVVM</tags>
+    <dependencies>
+      <group targetFramework="net40">
+        <dependency id="JV.Utilities" version="1.0.0"/>
+        <dependency id="ReadOnlyCollectionInterfaces" version="1.0.0"/>
+      </group>
+      <group targetFramework="net45">
+        <dependency id="JV.Utilities" version="1.0.0"/>
+      </group>
+      <group targetFramework="net46">
+        <dependency id="JV.Utilities" version="1.0.0"/>
+      </group>
+    </dependencies>
   </metadata>
+  <files>
+    <file src="bin\Release.Net40\JV.Utilities.Wpf.dll" target="lib\net40"/>
+    <file src="bin\Release.Net40\JV.Utilities.Wpf.xml" target="lib\net40"/>
+    <file src="bin\Release.Net45\JV.Utilities.Wpf.dll" target="lib\net45"/>
+    <file src="bin\Release.Net45\JV.Utilities.Wpf.xml" target="lib\net45"/>
+    <file src="bin\Release.Net46\JV.Utilities.Wpf.dll" target="lib\net46"/>
+    <file src="bin\Release.Net46\JV.Utilities.Wpf.xml" target="lib\net46"/>
+  </files>
 </package>

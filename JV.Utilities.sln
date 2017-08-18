@@ -16,6 +16,7 @@ Global
 		Debug.Net40|Any CPU = Debug.Net40|Any CPU
 		Debug.Net45|Any CPU = Debug.Net45|Any CPU
 		Debug.Net46|Any CPU = Debug.Net46|Any CPU
+		Package|Any CPU = Package|Any CPU
 		Release.Net40|Any CPU = Release.Net40|Any CPU
 		Release.Net45|Any CPU = Release.Net45|Any CPU
 		Release.Net46|Any CPU = Release.Net46|Any CPU
@@ -27,6 +28,8 @@ Global
 		{8CAE9257-F2C1-489C-B910-3A298A1706B7}.Debug.Net45|Any CPU.Build.0 = Debug.Net45|Any CPU
 		{8CAE9257-F2C1-489C-B910-3A298A1706B7}.Debug.Net46|Any CPU.ActiveCfg = Debug.Net46|Any CPU
 		{8CAE9257-F2C1-489C-B910-3A298A1706B7}.Debug.Net46|Any CPU.Build.0 = Debug.Net46|Any CPU
+		{8CAE9257-F2C1-489C-B910-3A298A1706B7}.Package|Any CPU.ActiveCfg = Package|Any CPU
+		{8CAE9257-F2C1-489C-B910-3A298A1706B7}.Package|Any CPU.Build.0 = Package|Any CPU
 		{8CAE9257-F2C1-489C-B910-3A298A1706B7}.Release.Net40|Any CPU.ActiveCfg = Release.Net40|Any CPU
 		{8CAE9257-F2C1-489C-B910-3A298A1706B7}.Release.Net40|Any CPU.Build.0 = Release.Net40|Any CPU
 		{8CAE9257-F2C1-489C-B910-3A298A1706B7}.Release.Net45|Any CPU.ActiveCfg = Release.Net45|Any CPU
@@ -39,6 +42,7 @@ Global
 		{CAA3065A-F2DB-488F-83D0-3F3D5B0074B0}.Debug.Net45|Any CPU.Build.0 = Debug.Net45|Any CPU
 		{CAA3065A-F2DB-488F-83D0-3F3D5B0074B0}.Debug.Net46|Any CPU.ActiveCfg = Debug.Net46|Any CPU
 		{CAA3065A-F2DB-488F-83D0-3F3D5B0074B0}.Debug.Net46|Any CPU.Build.0 = Debug.Net46|Any CPU
+		{CAA3065A-F2DB-488F-83D0-3F3D5B0074B0}.Package|Any CPU.ActiveCfg = Debug.Net46|Any CPU
 		{CAA3065A-F2DB-488F-83D0-3F3D5B0074B0}.Release.Net40|Any CPU.ActiveCfg = Debug.Net40|Any CPU
 		{CAA3065A-F2DB-488F-83D0-3F3D5B0074B0}.Release.Net45|Any CPU.ActiveCfg = Debug.Net45|Any CPU
 		{CAA3065A-F2DB-488F-83D0-3F3D5B0074B0}.Release.Net46|Any CPU.ActiveCfg = Debug.Net46|Any CPU
@@ -48,6 +52,8 @@ Global
 		{6C47B6D1-2087-4374-8A0B-45213CB46294}.Debug.Net45|Any CPU.Build.0 = Debug.Net45|Any CPU
 		{6C47B6D1-2087-4374-8A0B-45213CB46294}.Debug.Net46|Any CPU.ActiveCfg = Debug.Net46|Any CPU
 		{6C47B6D1-2087-4374-8A0B-45213CB46294}.Debug.Net46|Any CPU.Build.0 = Debug.Net46|Any CPU
+		{6C47B6D1-2087-4374-8A0B-45213CB46294}.Package|Any CPU.ActiveCfg = Package|Any CPU
+		{6C47B6D1-2087-4374-8A0B-45213CB46294}.Package|Any CPU.Build.0 = Package|Any CPU
 		{6C47B6D1-2087-4374-8A0B-45213CB46294}.Release.Net40|Any CPU.ActiveCfg = Release.Net40|Any CPU
 		{6C47B6D1-2087-4374-8A0B-45213CB46294}.Release.Net40|Any CPU.Build.0 = Release.Net40|Any CPU
 		{6C47B6D1-2087-4374-8A0B-45213CB46294}.Release.Net45|Any CPU.ActiveCfg = Release.Net45|Any CPU
@@ -60,6 +66,7 @@ Global
 		{9CE281D8-2115-41DD-B788-1D7AE7F0F257}.Debug.Net45|Any CPU.Build.0 = Debug.Net45|Any CPU
 		{9CE281D8-2115-41DD-B788-1D7AE7F0F257}.Debug.Net46|Any CPU.ActiveCfg = Debug.Net46|Any CPU
 		{9CE281D8-2115-41DD-B788-1D7AE7F0F257}.Debug.Net46|Any CPU.Build.0 = Debug.Net46|Any CPU
+		{9CE281D8-2115-41DD-B788-1D7AE7F0F257}.Package|Any CPU.ActiveCfg = Debug.Net46|Any CPU
 		{9CE281D8-2115-41DD-B788-1D7AE7F0F257}.Release.Net40|Any CPU.ActiveCfg = Debug.Net40|Any CPU
 		{9CE281D8-2115-41DD-B788-1D7AE7F0F257}.Release.Net45|Any CPU.ActiveCfg = Debug.Net45|Any CPU
 		{9CE281D8-2115-41DD-B788-1D7AE7F0F257}.Release.Net46|Any CPU.ActiveCfg = Debug.Net46|Any CPU

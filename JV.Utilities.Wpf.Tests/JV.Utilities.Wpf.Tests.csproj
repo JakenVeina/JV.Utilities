@@ -6,8 +6,8 @@
     <ProjectGuid>{CAA3065A-F2DB-488F-83D0-3F3D5B0074B0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JV.Wpf.Utilities.Tests</RootNamespace>
-    <AssemblyName>JV.Wpf.Utilities.Tests</AssemblyName>
+    <RootNamespace>JV.Utilities.Wpf.Tests</RootNamespace>
+    <AssemblyName>JV.Utilities.Wpf.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -23,7 +23,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\Debug.Net40\</OutputPath>
     <DefineConstants>DEBUG;TRACE;NET40</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -45,6 +45,9 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="JV.Utilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\JV.Utilities.1.0.0\lib\net46\JV.Utilities.dll</HintPath>
+    </Reference>
     <Reference Include="NSubstitute, Version=2.0.3.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
       <HintPath>..\packages\NSubstitute.2.0.3\lib\net45\NSubstitute.dll</HintPath>
     </Reference>
@@ -86,10 +89,6 @@
     <ProjectReference Include="..\JV.Utilities.Wpf\JV.Utilities.Wpf.csproj">
       <Project>{8cae9257-f2c1-489c-b910-3a298a1706b7}</Project>
       <Name>JV.Wpf.Utilities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\JV.Utilities\JV.Utilities.csproj">
-      <Project>{6c47b6d1-2087-4374-8a0b-45213cb46294}</Project>
-      <Name>JV.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
