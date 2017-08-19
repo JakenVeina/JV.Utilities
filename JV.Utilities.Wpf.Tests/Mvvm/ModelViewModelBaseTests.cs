@@ -72,21 +72,6 @@ namespace JV.Utilities.Wpf.Tests.Mvvm
         }
 
         [TestCase("A", "B")]
-        public void ModelSet_ModelDoesNotEqualGiven_InvokesOnModelChanged(string previousModel, string model)
-        {
-            var context = new TestContext<string>();
-            var uut = context.ConstructUUT();
-
-            uut.Model = previousModel;
-
-            uut.ClearReceivedCalls();
-
-            uut.Model = model;
-
-            uut.Received(1).OnModelChanged(previousModel, model);
-        }
-
-        [TestCase("A", "B")]
         public void ModelSet_ModelDoesNotEqualGivenAndModelChangedIsNull_DoesNotThrowException(string previousModel, string model)
         {
             var context = new TestContext<string>();
@@ -115,21 +100,6 @@ namespace JV.Utilities.Wpf.Tests.Mvvm
             uut.Model = model;
 
             context.modelChangedHandler.Received(1).Invoke(uut, Arg.Is<PropertyChangedEventArgs<string>>(x => (x.OldValue == previousModel) && (x.NewValue == model)));
-        }
-
-        [TestCase("model")]
-        public void Load_ModelEqualsGiven_DoesNotInvokeOnModelChanged(string model)
-        {
-            var context = new TestContext<string>();
-            var uut = context.ConstructUUT();
-
-            uut.Model = model;
-
-            uut.ClearReceivedCalls();
-
-            uut.Model = model;
-
-            uut.DidNotReceive().OnModelChanged(Arg.Any<string>(), Arg.Any<string>());
         }
 
         [TestCase("model")]

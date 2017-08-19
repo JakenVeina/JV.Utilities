@@ -77,9 +77,6 @@
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <DocumentationFile>bin\Release.Net46\JV.Utilities.Wpf.xml</DocumentationFile>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Package|AnyCPU'">
-    <OutputPath>bin\Package\</OutputPath>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="JV.Utilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\JV.Utilities.1.0.0\lib\net40\JV.Utilities.dll</HintPath>

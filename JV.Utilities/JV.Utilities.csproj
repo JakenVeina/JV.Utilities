@@ -80,10 +80,6 @@
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <LangVersion>6</LangVersion>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Package|AnyCPU'">
-    <OutputPath>bin\Package\</OutputPath>
-    <LangVersion>6</LangVersion>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Runtime.Serialization" />

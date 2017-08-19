@@ -28,7 +28,6 @@ namespace JV.Utilities.Wpf.Mvvm
                 var oldValue = _model;
                 _model = value;
 
-                OnModelChanged(oldValue, _model);
                 ModelChanged?.Invoke(this, new PropertyChangedEventArgs<TModel>(oldValue, _model));
             }
         }
@@ -40,17 +39,5 @@ namespace JV.Utilities.Wpf.Mvvm
         public event EventHandler<PropertyChangedEventArgs<TModel>> ModelChanged;
 
         #endregion IModelViewModel
-
-        /**********************************************************************/
-        #region Protected Methods
-
-        /// <summary>
-        /// Invokes after the value of <see cref="Model"/> has changed, just before <see cref="ModelChanged"/> occurs.
-        /// </summary>
-        /// <param name="oldValue">The old value of <see cref="Model"/>.</param>
-        /// <param name="newValue">The new value of <see cref="Model"/>.</param>
-        internal protected abstract void OnModelChanged(TModel oldValue, TModel newValue);
-
-        #endregion Protected Methods
     }
 }
