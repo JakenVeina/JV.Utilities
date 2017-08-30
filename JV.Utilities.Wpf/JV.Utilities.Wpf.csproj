@@ -79,7 +79,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="JV.Utilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\JV.Utilities.1.0.0\lib\net40\JV.Utilities.dll</HintPath>
+      <HintPath>..\packages\JV.Utilities.1.0.1\lib\net40\JV.Utilities.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -103,6 +103,7 @@
     <Compile Include="Commands\Interfaces\IAsyncCommand.cs" />
     <Compile Include="Commands\Interfaces\ICommandManager.cs" />
     <Compile Include="Commands\WpfCommandManager.cs" />
+    <Compile Include="Elements\StretchPanel.cs" />
     <Compile Include="Mvvm\Interfaces\IModelViewModel.cs" />
     <Compile Include="Mvvm\Interfaces\IViewModel.cs" />
     <Compile Include="Mvvm\ModelViewModelBase.cs" />

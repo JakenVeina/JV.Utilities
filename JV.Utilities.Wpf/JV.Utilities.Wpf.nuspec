@@ -2,14 +2,14 @@
 <package >
   <metadata>
     <id>JV.Utilities.Wpf</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>JV.Utilities.Wpf</title>
     <authors>https://github.com/JakenVeina</authors>
     <owners>https://github.com/JakenVeina</owners>
     <projectUrl>https://github.com/JakenVeina/JV.Utilities</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Common Utilities for Windows Presentation Foundation (WPF)</description>
-    <releaseNotes>Initial release.</releaseNotes>
+    <releaseNotes>Added StretchPanel.</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>Utilities WPF MVVM</tags>
     <dependencies>

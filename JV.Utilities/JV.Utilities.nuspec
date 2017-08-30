@@ -2,14 +2,14 @@
 <package >
   <metadata>
     <id>JV.Utilities</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>JV.Utilities</title>
     <authors>https://github.com/JakenVeina</authors>
     <owners>https://github.com/JakenVeina</owners>
     <projectUrl>https://github.com/JakenVeina/JV.Utilities</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Common C# Utilities for the .NET Framework</description>
-    <releaseNotes>Initial release.</releaseNotes>
+    <releaseNotes>Added EnumerableExtensions.Partition()</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>Utilities Comparers Extensions Math PropertyChanged</tags>
   </metadata>

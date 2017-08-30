@@ -265,5 +265,174 @@ namespace JV.Utilities.Tests.Extensions
         }
 
         #endregion CartesianProduct Tests
+
+        /**********************************************************************/
+        #region Partition(size) Tests
+
+        [Test]
+        public void Partition_Size_ThisIsNull_ThrowsException()
+        {
+            var @this = null as IEnumerable<string>;
+            var size = 1;
+
+            var result = Should.Throw<ArgumentNullException>(() =>
+            {
+                @this.Partition(size);
+            });
+
+            result.ParamName.ShouldBe(nameof(@this));
+        }
+
+        [TestCase(-1)]
+        [TestCase(0)]
+        public void Partition_Size_SizeIsLessThan1_ThrowsException(int size)
+        {
+            var @this = "this".MakeEnumerable();
+
+            var result = Should.Throw<ArgumentOutOfRangeException>(() =>
+            {
+                @this.Partition(size);
+            });
+
+            result.ShouldSatisfyAllConditions(
+                () => result.ParamName.ShouldBe(nameof(size)),
+                () => result.ActualValue.ShouldBe(size));
+        }
+
+        [TestCase(1)]
+        [TestCase(2)]
+        public void Partition_Size_ThisIsEmpty_ResultIsEmpty(int size)
+        {
+            var @this = Enumerable.Empty<string>();
+
+            @this.Partition(size).ShouldBeEmpty();
+        }
+
+        [TestCase("1",           1, "1")]
+        [TestCase("1",           2, "1")]
+        [TestCase("1,2",         1, "1;2")]
+        [TestCase("1,2",         2, "1,2")]
+        [TestCase("1,2",         3, "1,2")]
+        [TestCase("1,2,3",       1, "1;2;3")]
+        [TestCase("1,2,3",       2, "1,2;3")]
+        [TestCase("1,2,3",       3, "1,2,3")]
+        [TestCase("1,2,3",       4, "1,2,3")]
+        [TestCase("1,2,3,4",     1, "1;2;3;4")]
+        [TestCase("1,2,3,4",     2, "1,2;3,4")]
+        [TestCase("1,2,3,4",     3, "1,2,3;4")]
+        [TestCase("1,2,3,4",     4, "1,2,3,4")]
+        [TestCase("1,2,3,4",     5, "1,2,3,4")]
+        [TestCase("1,2,3,4,5",   1, "1;2;3;4;5")]
+        [TestCase("1,2,3,4,5",   2, "1,2;3,4;5")]
+        [TestCase("1,2,3,4,5",   3, "1,2,3;4,5")]
+        [TestCase("1,2,3,4,5",   4, "1,2,3,4;5")]
+        [TestCase("1,2,3,4,5",   5, "1,2,3,4,5")]
+        [TestCase("1,2,3,4,5",   6, "1,2,3,4,5")]
+        [TestCase("1,2,3,4,5,6", 1, "1;2;3;4;5;6")]
+        [TestCase("1,2,3,4,5,6", 2, "1,2;3,4;5,6")]
+        [TestCase("1,2,3,4,5,6", 3, "1,2,3;4,5,6")]
+        [TestCase("1,2,3,4,5,6", 4, "1,2,3,4;5,6")]
+        [TestCase("1,2,3,4,5,6", 5, "1,2,3,4,5;6")]
+        [TestCase("1,2,3,4,5,6", 6, "1,2,3,4,5,6")]
+        [TestCase("1,2,3,4,5,6", 7, "1,2,3,4,5,6")]
+        public void Partition_Size_Otherwise_EnumerationMatchesExpected(string thisString, int size, string expectedResultString)
+        {
+            var @this = thisString.Split(',').ToArray();
+
+            var expectedResult = expectedResultString.Split(';').Select(x => x.Split(',')).ToArray();
+
+            var result = @this.Partition(size).ToArray();
+
+            result.ShouldSatisfyAllConditions(
+                () => result.Length.ShouldBe(expectedResult.Length),
+                () => result.Zip(expectedResult, (x, y) => new { Actual = x, Expected = y }).ForEach(x => x.Actual.ShouldBeOrderedEquivalentTo(x.Expected)));
+        }
+
+        #endregion Partition(size) Tests
+
+        /**********************************************************************/
+        #region Partition(splitSelector) Tests
+
+        [Test]
+        public void Partition_SplitSelector_ThisIsNull_ThrowsException()
+        {
+            var @this = null as IEnumerable<string>;
+            var splitSelector = new Predicate<string>(x => true);
+
+            var result = Should.Throw<ArgumentNullException>(() =>
+            {
+                @this.Partition(splitSelector);
+            });
+
+            result.ParamName.ShouldBe(nameof(@this));
+        }
+
+        [TestCase(-1)]
+        [TestCase(0)]
+        public void Partition_SplitSelector_SplitSelectorIsNull_ThrowsException(int size)
+        {
+            var @this = "this".MakeEnumerable();
+            var splitSelector = null as Predicate<string>;
+
+            var result = Should.Throw<ArgumentNullException>(() =>
+            {
+                @this.Partition(splitSelector);
+            });
+
+            result.ParamName.ShouldBe(nameof(splitSelector));
+        }
+
+        [TestCase(true)]
+        [TestCase(false)]
+        public void Partition_Size_ThisIsEmpty_ResultIsEmpty(bool splitSelectorResult)
+        {
+            var @this = Enumerable.Empty<string>();
+            var splitSelector = new Predicate<string>(x => splitSelectorResult);
+
+            @this.Partition(splitSelector).ShouldBeEmpty();
+        }
+
+        [TestCase("1",           "1", "1")]
+        [TestCase("1",           "2", "1")]
+        [TestCase("1,2",         "1", "1;2")]
+        [TestCase("1,2",         "2", "1,2")]
+        [TestCase("1,2",         "3", "1,2")]
+        [TestCase("1,2,3",       "1", "1;2,3")]
+        [TestCase("1,2,3",       "2", "1,2;3")]
+        [TestCase("1,2,3",       "3", "1,2,3")]
+        [TestCase("1,2,3",       "4", "1,2,3")]
+        [TestCase("1,2,3,4",     "1", "1;2,3,4")]
+        [TestCase("1,2,3,4",     "2", "1,2;3,4")]
+        [TestCase("1,2,3,4",     "3", "1,2,3;4")]
+        [TestCase("1,2,3,4",     "4", "1,2,3,4")]
+        [TestCase("1,2,3,4",     "5", "1,2,3,4")]
+        [TestCase("1,2,3,4,5",   "1", "1;2,3,4,5")]
+        [TestCase("1,2,3,4,5",   "2", "1,2;3,4,5")]
+        [TestCase("1,2,3,4,5",   "3", "1,2,3;4,5")]
+        [TestCase("1,2,3,4,5",   "4", "1,2,3,4;5")]
+        [TestCase("1,2,3,4,5",   "5", "1,2,3,4,5")]
+        [TestCase("1,2,3,4,5",   "6", "1,2,3,4,5")]
+        [TestCase("1,2,3,4,5,6", "1", "1;2,3,4,5,6")]
+        [TestCase("1,2,3,4,5,6", "2", "1,2;3,4,5,6")]
+        [TestCase("1,2,3,4,5,6", "3", "1,2,3;4,5,6")]
+        [TestCase("1,2,3,4,5,6", "4", "1,2,3,4;5,6")]
+        [TestCase("1,2,3,4,5,6", "5", "1,2,3,4,5;6")]
+        [TestCase("1,2,3,4,5,6", "6", "1,2,3,4,5,6")]
+        [TestCase("1,2,3,4,5,6", "7", "1,2,3,4,5,6")]
+        public void Partition_SplitSelector_Otherwise_EnumerationMatchesExpected(string thisString, string splitItem, string expectedResultString)
+        {
+            var @this = thisString.Split(',').ToArray();
+            var splitSelector = new Predicate<string>(x => (x == splitItem));
+
+            var expectedResult = expectedResultString.Split(';').Select(x => x.Split(',')).ToArray();
+
+            var result = @this.Partition(splitSelector).ToArray();
+
+            result.ShouldSatisfyAllConditions(
+                () => result.Length.ShouldBe(expectedResult.Length),
+                () => result.Zip(expectedResult, (x, y) => new { Actual = x, Expected = y }).ForEach(x => x.Actual.ShouldBeOrderedEquivalentTo(x.Expected)));
+        }
+
+        #endregion Partition(splitSelector) Tests
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -149,6 +150,69 @@ namespace JV.Utilities.Extensions
                 emptyResult,
                 (result, newSequence) => result.SelectMany(resultSequence =>
                                              newSequence.Select(nextSequenceItem => resultSequence.Concat(new[] { nextSequenceItem }))));
+        }
+
+        /// <summary>
+        /// Splits a given <see cref="IEnumerable{T}"/> into several, sequential, <see cref="IEnumerable{T}"/> chunks,
+        /// each containing a given number of items (except for the last item, which may contain fewer).
+        /// </summary>
+        /// <typeparam name="T">The type of items in the <see cref="IEnumerable{T}"/> to be split.</typeparam>
+        /// <param name="this">The <see cref="IEnumerable{T}"/> to be split.</param>
+        /// <param name="size">The desired number of items for each chunk of <paramref name="this"/></param>
+        /// <exception cref="ArgumentNullException">Throws for <paramref name="this"/>.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Throws if <paramref name="size"/> is less than 1.</exception>
+        /// <returns>An <see cref="IEnumerable{T}"/> containing the split chunks of <paramref name="this"/>.</returns>
+        public static IEnumerable<IEnumerable<T>> Partition<T>(this IEnumerable<T> @this, int size)
+        {
+            if (@this == null)
+                throw new ArgumentNullException(nameof(@this));
+
+            if (size <= 0)
+                throw new ArgumentOutOfRangeException(nameof(size), size, "Must be greater than 0");
+
+            return @this.Select((x, i) => new { Item = x, Index = i })
+                        .Partition(x => ((x.Index % size) == (size - 1)))
+                        .Select(x => x.Select(y => y.Item));
+        }
+
+        /// <summary>
+        /// Splits a given <see cref="IEnumerable{T}"/> into several, sequential, <see cref="IEnumerable{T}"/> chunks,
+        /// using a given <see cref="Predicate{T}"/> to determine where the source enumeration should be split.
+        /// </summary>
+        /// <typeparam name="T">The type of items in the <see cref="IEnumerable{T}"/> to be split.</typeparam>
+        /// <param name="this">The <see cref="IEnumerable{T}"/> to be split.</param>
+        /// <param name="splitSelector">
+        /// A <see cref="Predicate{T}"/> which returns true for items from <paramref name="this"/> which should be the last item within the current chunk.
+        /// </param>
+        /// <exception cref="ArgumentNullException">Throws for <paramref name="this"/> and <paramref name="splitSelector"/>.</exception>
+        /// <returns>An <see cref="IEnumerable{T}"/> containing the split chunks of <paramref name="this"/>.</returns>
+        public static IEnumerable<IEnumerable<T>> Partition<T>(this IEnumerable<T> @this, Predicate<T> splitSelector)
+        {
+            if (@this == null)
+                throw new ArgumentNullException(nameof(@this));
+
+            if (splitSelector == null)
+                throw new ArgumentNullException(nameof(splitSelector));
+
+            return PartitionInternal(@this, splitSelector);
+        }
+
+        private static IEnumerable<IEnumerable<T>> PartitionInternal<T>(IEnumerable<T> @this, Predicate<T> splitSelector)
+        {
+            var chunk = new List<T>();
+
+            foreach(var item in @this)
+            {
+                chunk.Add(item);
+                if (splitSelector.Invoke(item))
+                {
+                    yield return chunk.ToArray();
+                    chunk.Clear();
+                }
+            }
+
+            if (chunk.Count > 0)
+                yield return chunk.ToArray();
         }
     }
 }

@@ -55,19 +55,7 @@ namespace JV.Utilities.Extensions
         /// <param name="this">The enumerator whose items are to be retrieved.</param>
         /// <returns>An enumerable object for the remaining items in the given enumerator.</returns>
         public static IEnumerable<T> GetRemaining<T>(this IEnumerator<T> @this)
-        {
-            if (@this == null)
-                throw new ArgumentNullException(nameof(@this));
-
-            // Run yielding in a separate method, so exceptions get thrown on call, not on iteration.
-            return GetRemainingInternal(@this);
-        }
-
-        private static IEnumerable<T> GetRemainingInternal<T>(IEnumerator<T> @this)
-        {
-            while (@this.MoveNext())
-                yield return @this.Current;
-        }
+            => GetRemaining(@this as IEnumerator).Cast<T>();
 
         /// <summary>
         /// Enumerates all remaining values from a given enumerator, as a new enumerable object.
@@ -80,7 +68,7 @@ namespace JV.Utilities.Extensions
             if (@this == null)
                 throw new ArgumentNullException(nameof(@this));
 
-            // Run yielding in a separate method, so exceptions get thrown on call, not on iteration.
+            // Yield in another method, so that exceptions get thrown immediately, not during enumeration.
             return GetRemainingInternal(@this);
         }
 
