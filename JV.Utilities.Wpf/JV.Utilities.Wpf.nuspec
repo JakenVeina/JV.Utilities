@@ -2,26 +2,35 @@
 <package >
   <metadata>
     <id>JV.Utilities.Wpf</id>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <title>JV.Utilities.Wpf</title>
     <authors>https://github.com/JakenVeina</authors>
     <owners>https://github.com/JakenVeina</owners>
     <projectUrl>https://github.com/JakenVeina/JV.Utilities</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Common Utilities for Windows Presentation Foundation (WPF)</description>
-    <releaseNotes>Added StretchPanel.</releaseNotes>
+    <releaseNotes>Added IBooleanOptionVM, IMinMaxPairVM, and IStringCollectionVM.</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>Utilities WPF MVVM</tags>
     <dependencies>
       <group targetFramework="net40">
-        <dependency id="JV.Utilities" version="1.0.0"/>
+        <dependency id="Microsoft.Bcl" version="1.1.8"/>
+        <dependency id="Microsoft.Bcl.Async" version="1.0.168"/>
+        <dependency id="Microsoft.Bcl.Build" version="1.0.14"/>
+        <dependency id="JV.Utilities" version="1.0.2"/>
         <dependency id="ReadOnlyCollectionInterfaces" version="1.0.0"/>
       </group>
       <group targetFramework="net45">
-        <dependency id="JV.Utilities" version="1.0.0"/>
+        <dependency id="Microsoft.Bcl" version="1.1.8"/>
+        <dependency id="Microsoft.Bcl.Async" version="1.0.168"/>
+        <dependency id="Microsoft.Bcl.Build" version="1.0.14"/>
+        <dependency id="JV.Utilities" version="1.0.2"/>
       </group>
       <group targetFramework="net46">
-        <dependency id="JV.Utilities" version="1.0.0"/>
+        <dependency id="Microsoft.Bcl" version="1.1.8"/>
+        <dependency id="Microsoft.Bcl.Async" version="1.0.168"/>
+        <dependency id="Microsoft.Bcl.Build" version="1.0.14"/>
+        <dependency id="JV.Utilities" version="1.0.2"/>
       </group>
     </dependencies>
   </metadata>

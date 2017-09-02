@@ -11,6 +11,13 @@ namespace JV.Utilities.Extensions
     /// </summary>
     public static class ArrayExtensions
     {
+        /// <summary>
+        /// Returns an <see cref="IEnumerable{T}"/> object which enumerates the valid index values of a given <see cref="Array"/>,
+        /// in ascending order.
+        /// </summary>
+        /// <typeparam name="T">The type of items in <paramref name="this"/>.</typeparam>
+        /// <param name="this">The array whose index values are to be enumerated.</param>
+        /// <returns>An <see cref="IEnumerable{T}"/> object for enumerating the valid index values of <paramref name="this"/>.</returns>
         public static IEnumerable<int> IndexRange<T>(this T[] @this)
         {
             if (@this == null)
@@ -19,6 +26,13 @@ namespace JV.Utilities.Extensions
             return Enumerable.Range(0, @this.Length);
         }
 
+        /// <summary>
+        /// Returns an <see cref="IEnumerable{T}"/> object which enumerates the valid index values of a given <see cref="Array"/>,
+        /// in descending order.
+        /// </summary>
+        /// <typeparam name="T">The type of items in <paramref name="this"/>.</typeparam>
+        /// <param name="this">The array whose index values are to be enumerated.</param>
+        /// <returns>An <see cref="IEnumerable{T}"/> object for enumerating the valid index values of <paramref name="this"/>.</returns>
         public static IEnumerable<int> ReverseIndexRange<T>(this T[] @this)
         {
             if (@this == null)

@@ -2,14 +2,14 @@
 <package >
   <metadata>
     <id>JV.Utilities</id>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <title>JV.Utilities</title>
     <authors>https://github.com/JakenVeina</authors>
     <owners>https://github.com/JakenVeina</owners>
     <projectUrl>https://github.com/JakenVeina/JV.Utilities</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Common C# Utilities for the .NET Framework</description>
-    <releaseNotes>Added EnumerableExtensions.Partition()</releaseNotes>
+    <releaseNotes>Added TaskExtensions.WhenAny, ArrayExtensions.IndexRange, ArrayExtensions.ReverseIndexRange, ListExtensions.IndexRange, and ListExtensions.ReverseIndexRange</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>Utilities Comparers Extensions Math PropertyChanged</tags>
     <dependencies>
