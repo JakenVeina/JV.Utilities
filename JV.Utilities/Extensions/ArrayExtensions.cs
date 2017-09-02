@@ -11,6 +11,28 @@ namespace JV.Utilities.Extensions
     /// </summary>
     public static class ArrayExtensions
     {
+        public static IEnumerable<int> IndexRange<T>(this T[] @this)
+        {
+            if (@this == null)
+                throw new ArgumentNullException(nameof(@this));
+
+            return Enumerable.Range(0, @this.Length);
+        }
+
+        public static IEnumerable<int> ReverseIndexRange<T>(this T[] @this)
+        {
+            if (@this == null)
+                throw new ArgumentNullException(nameof(@this));
+
+            return ReverseIndexRangeInternal(@this.Length);
+        }
+
+        private static IEnumerable<int> ReverseIndexRangeInternal(int length)
+        {
+            for (int i = (length - 1); i >= 0; --i)
+                yield return i;
+        }
+
         /// <summary>
         /// Returns an array containing the items in the given array, specified by the given index and length.
         /// </summary>

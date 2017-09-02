@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace JV.Utilities.Extensions
 {
     /// <summary>
-    /// Extension methods for <see cref="Math"/>.
+    /// Extension methods for performing mathematical operations.
     /// </summary>
     public static class MathExtensions
     {

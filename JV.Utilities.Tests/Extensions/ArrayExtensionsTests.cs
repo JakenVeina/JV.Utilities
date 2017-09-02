@@ -13,6 +13,62 @@ namespace JV.Utilities.Tests.Extensions
     public class ArrayExtensionsTests
     {
         /**********************************************************************/
+        #region IndexRange Tests
+
+        [Test]
+        public void IndexRange_ThisIsNull_ThrowsException()
+        {
+            var @this = null as int[];
+
+            var result = Should.Throw<ArgumentNullException>(() =>
+            {
+                @this.IndexRange();
+            });
+
+            result.ParamName.ShouldBe(nameof(@this));
+        }
+
+        [TestCase(0)]
+        [TestCase(1)]
+        [TestCase(5)]
+        public void IndexRange_Otherwise_ResultEachIsExpected(int thisLength)
+        {
+            var @this = new int[thisLength];
+
+            @this.IndexRange().ShouldBeOrderedEquivalentTo(Enumerable.Range(0, @this.Length));
+        }
+
+        #endregion IndexRange Tests
+
+        /**********************************************************************/
+        #region ReverseIndexRange Tests
+
+        [Test]
+        public void ReverseIndexRange_ThisIsNull_ThrowsException()
+        {
+            var @this = null as int[];
+
+            var result = Should.Throw<ArgumentNullException>(() =>
+            {
+                @this.ReverseIndexRange();
+            });
+
+            result.ParamName.ShouldBe(nameof(@this));
+        }
+
+        [TestCase(0)]
+        [TestCase(1)]
+        [TestCase(5)]
+        public void ReverseIndexRange_Otherwise_ResultEachIsExpected(int thisLength)
+        {
+            var @this = new int[thisLength];
+
+            @this.ReverseIndexRange().ShouldBeOrderedEquivalentTo(Enumerable.Range(0, @this.Length).Reverse());
+        }
+
+        #endregion ReverseIndexRange Tests
+
+        /**********************************************************************/
         #region SubArray Tests
 
         [Test]
