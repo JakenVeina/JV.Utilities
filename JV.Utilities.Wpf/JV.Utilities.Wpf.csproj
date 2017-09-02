@@ -104,9 +104,15 @@
     <Compile Include="Commands\Interfaces\ICommandManager.cs" />
     <Compile Include="Commands\WpfCommandManager.cs" />
     <Compile Include="Elements\StretchPanel.cs" />
+    <Compile Include="Mvvm\BooleanOptionVM.cs" />
+    <Compile Include="Mvvm\Interfaces\IBooleanOptionVM.cs" />
+    <Compile Include="Mvvm\Interfaces\IMinMaxPairVM.cs" />
     <Compile Include="Mvvm\Interfaces\IModelViewModel.cs" />
+    <Compile Include="Mvvm\Interfaces\IStringCollectionVM.cs" />
     <Compile Include="Mvvm\Interfaces\IViewModel.cs" />
+    <Compile Include="Mvvm\MinMaxPairVM.cs" />
     <Compile Include="Mvvm\ModelViewModelBase.cs" />
+    <Compile Include="Mvvm\StringCollectionVM.cs" />
     <Compile Include="Mvvm\ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueConverters\BooleanInversionValueConverter.cs" />
